@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Gallego</title>
+
+<style>
+
+.barra-filtro {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.filtro-btn:hover {
+  background: black;
+  color: white;
+}
+
+.filtro-btn.activo {
+  background: black;
+  color: white;
+  border: 1px solid black;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 280px);
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.price {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.button {
+  display: block;
+  text-align: center;
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.agotado {
+  color: red;
+  font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Catálogo Zapatillas Gallego</h1>
+
+<div class="barra-filtro">
+  <button class="filtro-btn activo" onclick="filtrar('todas')">Todas</button>
+  <button class="filtro-btn" onclick="filtrar('37')">37</button>
+  <button class="filtro-btn" onclick="filtrar('38')">38</button>
+  <button class="filtro-btn" onclick="filtrar('39')">39</button>
+  <button class="filtro-btn" onclick="filtrar('40')">40</button>
+  <button class="filtro-btn" onclick="filtrar('41')">41</button>
+</div>
+</div>
+
+<div class="grid">
+
+    <div class="card">
+        <img src="Fotos\1.jpeg" alt="Adidas JeanPiere">
+        <h2>Adidas JeanPiere</h2>
+        <div class="price">$120.000</div>
+        <p>Talla 40 - Agotado</p>
+        <p class="agotado">Producto agotado</p>
+    </div>
+    
+    <div class="card">
+        <img src="Fotos\2.jpeg" alt="Adidas Samba Café">
+        <h2>Adidas Samba Café</h2>
+        <div class="price">$120.000</div>
+        <p>Talla 40 - Disponible</p><p>Talla 38 - Disponible</p>
+        <a class="button" href="https://wa.me/573246802447?text=Hola,%20quiero%20el%20modelo%20Adidas%20Samba%20Café" target="_blank">Consultar por WhatsApp</a>
+    </div>
+    
+    <div class="card">
+        <img src="Fotos\3.jpeg" alt="Adidas Samba B/N">
+        <h2>Adidas Samba B/N</h2>
+        <div class="price">$120.000</div>
+        <p>Talla 41 - Disponible</p><p>Talla 39 - Disponible</p><p>Talla 38 - Disponible</p>
+        <a class="button" href="https://wa.me/573246802447?text=Hola,%20quiero%20el%20modelo%20Adidas%20Samba%20B/N" target="_blank">Consultar por WhatsApp</a>
+    </div>
+    
+    <div class="card">
+        <img src="Fotos\4.jpeg" alt="Adidas Samba Plata">
+        <h2>Adidas Samba Plata</h2>
+        <div class="price">$120.000</div>
+        <p>Talla 39 - Disponible</p><p>Talla 38 - Disponible</p><p>Talla 37 - Agotado</p><p>Talla 36 - Disponible</p>
+        <a class="button" href="https://wa.me/573246802447?text=Hola,%20quiero%20el%20modelo%20Adidas%20Samba%20Plata" target="_blank">Consultar por WhatsApp</a>
+    </div>
+    
+    <div class="card">
+        <img src="Fotos\5.jpeg" alt="Adidas Samba Vino">
+        <h2>Adidas Samba Vino</h2>
+        <div class="price">$120.000</div>
+        <p>Talla 37 - Disponible</p>
+        <a class="button" href="https://wa.me/573246802447?text=Hola,%20quiero%20el%20modelo%20Adidas%20Samba%20Vino" target="_blank">Consultar por WhatsApp</a>
+    </div>
+    
+    <div class="card">
+        <img src="Fotos\6.jpeg" alt="Adidas Samba Negra">
+        <h2>Adidas Samba Negra</h2>
+        <div class="price">$120.000</div>
+        <p>Talla 39 - Disponible</p><p>Talla 35 - Disponible</p>
+        <a class="button" href="https://wa.me/573246802447?text=Hola,%20quiero%20el%20modelo%20Adidas%20Samba%20Negra" target="_blank">Consultar por WhatsApp</a>
+    </div>
+    
+
+<script>
+function filtrar() {
+  let tallaSeleccionada = document.getElementById("filtroTalla").value;
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    if (tallaSeleccionada === "todas") {
+      card.style.display = "block";
+    } else {
+      if (card.innerHTML.includes("Talla " + tallaSeleccionada + " - Disponible")) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+}
+</script>
+<script>
+function filtrar(talla) {
+  let cards = document.querySelectorAll(".card");
+  let botones = document.querySelectorAll(".filtro-btn");
+
+  // Quitar clase activa
+  botones.forEach(btn => btn.classList.remove("activo"));
+
+  // Activar botón seleccionado
+  event.target.classList.add("activo");
+
+  cards.forEach(card => {
+    if (talla === "todas") {
+      card.style.display = "block";
+    } else {
+      if (card.innerHTML.includes("Talla " + talla + " - Disponible")) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+}
+</script>
+</div>
+
+</body>
+</html>
